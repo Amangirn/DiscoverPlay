@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | DiscoverPlay</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css?v=20260815-1">
+
+    <style>
+        .auth-wrapper {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.9)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1920&q=80') center/cover;
+        }
+        .auth-card {
+            background-color: var(--dp-bg-secondary);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+    
+        .password-input-wrapper .password-toggle { right: .35rem; padding: .25rem .5rem; }
+        .password-input-wrapper .password-toggle:focus { box-shadow: none; }
+    </style>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon" sizes="any">
+</head>
+<body>
+
+    <!-- Back to Home -->
+    <div class="position-absolute top-0 start-0 p-4">
+        <a href="../index.html" class="text-white text-decoration-none d-flex align-items-center gap-2">
+            <i class="bi bi-arrow-left"></i> Back to Home
+        </a>
+    </div>
+
+    <!-- Login Section -->
+    <div class="auth-wrapper py-5">
+        <div class="auth-card">
+            <div class="text-center mb-4">
+                <img src="../images/logo.png" alt="DiscoverPlay Logo" style="height: 50px;" class="mb-3" onerror="this.src='https://placehold.co/50x50/6C63FF/FFF?text=DP'">
+                <h3 class="fw-bold">Welcome Back</h3>
+                <p class="text-muted">Log in to DiscoverPlay to continue.</p>
+            </div>
+            
+            <form id="login-form">
+                <div class="mb-3">
+                    <label for="email" class="form-label text-muted small">Email Address</label>
+                    <input type="email" class="form-control" id="email" placeholder="name@example.com" required autocomplete="email">
+                </div>
+                <div class="mb-4">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <label for="password" class="form-label text-muted small mb-0">Password</label>
+                        <span class="small text-muted" title="Password recovery is not available yet.">Forgot Password?</span>
+                    </div>
+                    <input type="password" class="form-control mt-2" id="password" placeholder="••••••••" required autocomplete="current-password">
+                </div>
+                <div class="mb-4 form-check">
+                    <input type="checkbox" class="form-check-input bg-dark border-secondary" id="rememberMe">
+                    <label class="form-check-label text-muted small" for="rememberMe">Remember me</label>
+                </div>
+                <div id="login-message" class="small mb-3" role="alert"></div>
+                <button type="submit" class="btn btn-primary w-100 mb-4 py-2 fs-5" id="login-submit">Log In</button>
+            </form>
+
+            <div class="text-center">
+                <p class="text-muted mb-0">Don't have an account? <a href="register.html" class="text-decoration-none fw-semibold" style="color: var(--dp-accent-secondary);">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/auth.js?v=20260813-1"></script>
+    <script>
+    document.getElementById("login-form").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const message = document.getElementById("login-message");
+        const button = document.getElementById("login-submit");
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+        const params = new URLSearchParams(window.location.search);
+        const redirect = params.get("redirect") === "admin.html" ? "admin.html" : "../index.html";
+        message.textContent = "";
+        button.disabled = true;
+        try {
+            const result = await authRequest("/auth/login", { method: "POST", body: JSON.stringify({ email, password }) });
+            message.className = "small mb-3 text-success";
+            message.textContent = `Welcome back, ${result.user.username}.`;
+            setTimeout(() => window.location.href = redirect, 250);
+        } catch (error) {
+            message.className = "small mb-3 text-danger";
+            message.textContent = error.message;
+        } finally {
+            button.disabled = false;
+        }
+    });
+    </script>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

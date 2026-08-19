@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DiscoverPlay | Discover Great Games Without the Paid Noise</title>
+    <meta name="description"
+        content="DiscoverPlay helps you discover great games across PC, Android, iOS, PlayStation, Xbox, Nintendo Switch, macOS, and XR/VR without paid or sponsored game recommendations.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css?v=20260816-2">
+<link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" sizes="any">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="DiscoverPlay Logo"
+                    onerror="this.src='https://placehold.co/40x40/6C63FF/FFF?text=DP'">
+                DiscoverPlay
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/browse.html">Browse</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/leaderboards.html">Leaderboards</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Platforms
+                        </a>
+                        <!-- Platform links are injected by main.js via initPlatformNavLinks() -->
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="pages/browse.html?platform=PC">PC</a></li>
+                            <li><a class="dropdown-item" href="pages/browse.html?platform=Android">Android</a></li>
+                            <li><a class="dropdown-item" href="pages/browse.html?platform=iOS">iOS</a></li>
+                            <li><a class="dropdown-item" href="pages/browse.html?platform=PlayStation">PlayStation</a>
+                            </li>
+                            <li><a class="dropdown-item" href="pages/browse.html?platform=Xbox">Xbox</a></li>
+                            <li><a class="dropdown-item" href="pages/browse.html?platform=Nintendo%20Switch">Nintendo
+                                    Switch</a></li>
+                            <li><a class="dropdown-item" href="pages/browse.html?platform=XR%20%2F%20VR">XR / VR</a>
+                            </li>
+                            <li><a class="dropdown-item" href="pages/browse.html?platform=macOS">macOS</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center gap-2" data-auth-nav>
+                    <a href="pages/login.html" class="btn btn-outline-light btn-sm">Log In</a>
+                    <a href="pages/register.html" class="btn btn-primary btn-sm">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Featured Game Hero Section (populated by main.js) -->
+    <section id="featured-hero" class="hero-section position-relative d-flex align-items-center"
+        style="padding: 120px 0 80px 0; min-height: 70vh; background: linear-gradient(rgba(18,18,18,0.7), rgba(18,18,18,1)), url('https://via.placeholder.com/1920x800/1E1E1E/6C63FF?text=Loading...') center/cover no-repeat;">
+        <div class="container position-relative z-1">
+            <div class="row align-items-center">
+                <div class="col-lg-6 text-start">
+                    <span class="badge bg-primary mb-3 py-2 px-3 fs-6">Featured Game</span>
+                    <h1 id="featured-title" class="display-3 fw-bold mb-3 text-white text-shadow-sm">
+                        <div class="spinner-border spinner-border-sm text-light" role="status"></div> Loading...
+                    </h1>
+                    <p id="featured-desc" class="lead mb-4 text-light text-shadow-sm featured-description">
+                        Discover a strong pick based on current popularity, recency, and DiscoverPlay activity.
+                    </p>
+                    <div id="featured-actions">
+                        <!-- Buttons injected by main.js -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="row mt-5">
+                <div class="col-md-8 col-lg-6">
+                    <form class="d-flex bg-dark p-2 rounded-pill shadow"
+                        style="border: 1px solid rgba(255,255,255,0.1);" action="pages/browse.html" method="GET">
+                        <input class="form-control border-0 bg-transparent text-white shadow-none ps-4" type="search"
+                            name="search" placeholder="Search for games, genres, or platforms..." aria-label="Search">
+                        <button class="btn btn-primary rounded-pill px-4" type="submit">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Cards Section — each card has data-platform for click navigation -->
+    <section class="py-5 bg-secondary-dark">
+        <div class="container">
+            <h2 class="section-title">Browse by Platform</h2>
+            <div class="row row-cols-2 row-cols-md-4 row-cols-lg-8 g-3 text-center mt-3">
+
+                <div class="col">
+                    <div class="p-3 border rounded-3 bg-dark" data-platform="PC"
+                        style="border-color: rgba(255,255,255,0.05) !important; cursor:pointer;"
+                        title="Browse PC games">
+                        <i class="bi bi-pc-display fs-2 text-white mb-2"></i>
+                        <h6 class="mb-0">PC</h6>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="p-3 border rounded-3 bg-dark" data-platform="Android"
+                        style="border-color: rgba(255,255,255,0.05) !important; cursor:pointer;"
+                        title="Browse Android games">
+                        <i class="bi bi-android2 fs-2 text-success mb-2"></i>
+                        <h6 class="mb-0">Android</h6>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="p-3 border rounded-3 bg-dark" data-platform="iOS"
+                        style="border-color: rgba(255,255,255,0.05) !important; cursor:pointer;"
+                        title="Browse iOS games">
+                        <i class="bi bi-apple fs-2 text-white mb-2"></i>
+                        <h6 class="mb-0">iOS</h6>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="p-3 border rounded-3 bg-dark" data-platform="macOS"
+                        style="border-color: rgba(255,255,255,0.05) !important; cursor:pointer;"
+                        title="Browse macOS games">
+                        <i class="bi bi-laptop fs-2 text-white mb-2"></i>
+                        <h6 class="mb-0">macOS</h6>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="p-3 border rounded-3 bg-dark" data-platform="PlayStation"
+                        style="border-color: rgba(255,255,255,0.05) !important; cursor:pointer;"
+                        title="Browse PlayStation games">
+                        <i class="bi bi-playstation fs-2 text-primary mb-2"></i>
+                        <h6 class="mb-0">PlayStation</h6>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="p-3 border rounded-3 bg-dark" data-platform="Xbox"
+                        style="border-color: rgba(255,255,255,0.05) !important; cursor:pointer;"
+                        title="Browse Xbox games">
+                        <i class="bi bi-xbox fs-2 text-success mb-2"></i>
+                        <h6 class="mb-0">Xbox</h6>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="p-3 border rounded-3 bg-dark" data-platform="Nintendo Switch"
+                        style="border-color: rgba(255,255,255,0.05) !important; cursor:pointer;"
+                        title="Browse Nintendo Switch games">
+                        <i class="bi bi-nintendo-switch fs-2 text-danger mb-2"></i>
+                        <h6 class="mb-0">Switch</h6>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="p-3 border rounded-3 bg-dark" data-platform="XR / VR"
+                        style="border-color: rgba(255,255,255,0.05) !important; cursor:pointer;"
+                        title="Browse XR / VR games">
+                        <i class="bi bi-headset-vr fs-2 text-info mb-2"></i>
+                        <h6 class="mb-0">XR / VR</h6>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Games Section (populated by main.js) -->
+    <section class="py-5">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-end mb-4">
+                <div><h2 class="section-title mb-1">Trending Games</h2><p id="trending-description" class="text-muted small mb-0">Popular games based on current DiscoverPlay activity.</p></div>
+                <a href="pages/browse.html" class="btn btn-outline-accent btn-sm">View All</a>
+            </div>
+            <!-- Cards injected by main.js → loadTrendingGames() -->
+            <div id="trending-games-grid" class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-2"></div>
+        </div>
+    </section>
+
+    <!-- New Releases & Recommended Section (populated by main.js) -->
+    <section class="py-5 bg-dark">
+        <div class="container">
+            <div class="row g-5">
+
+                <!-- Recommended -->
+                <div class="col-lg-6">
+                    <h2 class="section-title mb-1">Recommended</h2>
+                    <p id="recommended-description" class="text-muted small mb-0">Recommendations adapt to games you view when you are signed in.</p>
+                    <div id="recommended-list" class="list-group list-group-flush mt-4">
+                        <div class="text-center py-4">
+                            <div class="spinner-border spinner-border-sm text-light" role="status"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recently Released -->
+                <div class="col-lg-6">
+                    <h2 class="section-title mb-1">Recently Released</h2>
+                    <p id="new-releases-description" class="text-muted small mb-0">Fresh additions to the DiscoverPlay library.</p>
+                    <div id="new-releases-list" class="list-group list-group-flush mt-4">
+                        <div class="text-center py-4">
+                            <div class="spinner-border spinner-border-sm text-light" role="status"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="about" class="footer mt-0">
+    <div class="container">
+        <div class="row gy-4">
+            <div class="col-lg-4">
+                <h5 class="text-white mb-3 d-flex align-items-center gap-2">
+                    <img src="images/logo.png" alt="DiscoverPlay Logo" style="height:30px;" onerror="this.style.display='none'">
+                    <span>DiscoverPlay</span>
+                </h5>
+                <p class="text-muted mb-3">
+                    DiscoverPlay helps you discover great games across platforms without paid advertisements or sponsored game recommendations.
+                </p>
+                <p class="small text-muted mb-0">Created by <strong class="text-white">AmanGirn</strong>.</p>
+            </div>
+
+            <div class="col-lg-2 col-md-4">
+                <h6 class="text-white mb-3">Explore</h6>
+                <ul class="list-unstyled mb-0 d-flex flex-column gap-2">
+                    <li><a href="index.html" class="footer-link">Home</a></li>
+                    <li><a href="pages/browse.html" class="footer-link">Browse Games</a></li>
+                    <li><a href="pages/leaderboards.html" class="footer-link">Leaderboards</a></li>
+                    <li><a href="pages/contact.html" class="footer-link">Contact</a></li>
+                    <li><a href="pages/login.html" class="footer-link">Log In</a></li>
+                    <li><a href="pages/register.html" class="footer-link">Sign Up</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-md-4">
+                <h6 class="text-white mb-3">Platforms</h6>
+                <ul class="list-unstyled mb-0 d-flex flex-column gap-2">
+                    <li><a href="pages/browse.html?platform=PC" class="footer-link">PC</a></li>
+                    <li><a href="pages/browse.html?platform=PlayStation" class="footer-link">PlayStation</a></li>
+                    <li><a href="pages/browse.html?platform=Xbox" class="footer-link">Xbox</a></li>
+                    <li><a href="pages/browse.html?platform=Nintendo%20Switch" class="footer-link">Nintendo Switch</a></li>
+                    <li><a href="pages/browse.html?platform=macOS" class="footer-link">macOS</a></li>
+                    <li><a href="pages/browse.html?platform=Android" class="footer-link">Android</a></li>
+                    <li><a href="pages/browse.html?platform=iOS" class="footer-link">iOS</a></li>
+                    <li><a href="pages/browse.html?platform=XR%20%2F%20VR" class="footer-link">XR / VR</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-4 col-md-4">
+                <h6 class="text-white mb-3">Why DiscoverPlay?</h6>
+                <p class="text-muted small mb-2">
+                    The purpose of this website is to help you find games worth playing across different platforms without ranking or promoting games because someone paid for advertising.
+                </p>
+                <p class="text-muted small mb-0">
+                    Game recommendations are based on the information and signals available in the DiscoverPlay database.
+                </p>
+            </div>
+        </div>
+
+        <hr class="mt-5 mb-4 border-secondary">
+
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start">
+                <p class="text-muted small mb-0">&copy; 2026 AmanGirn. All rights reserved.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+                <span class="text-muted small">DiscoverPlay</span>
+            </div>
+        </div>
+    </div>
+
+<div class="container pb-3"><div class="d-flex flex-wrap gap-3 small"><a href="pages/privacy.html" class="footer-link">Privacy Policy</a><a href="pages/terms.html" class="footer-link">Terms of Service</a></div></div>
+</footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js?v=20260815-1"></script>
+</body>
+
+</html>
