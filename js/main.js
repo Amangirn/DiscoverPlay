@@ -10,7 +10,7 @@
 
 const API_BASE = window.location.protocol === 'file:'
     ? 'http://localhost:5000/api'
-    : '/api';
+    : 'https://discoverplay-backend-f1o7.onrender.com/api';
 
 const DEFAULT_COVER =
     'https://via.placeholder.com/500x750?text=No+Image';

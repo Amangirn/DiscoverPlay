@@ -7,7 +7,9 @@ function escapeHTML(value) {
  * Manages CRUD operations for games via the API.
  */
 
-const API_BASE = '/api';
+const API_BASE = window.location.protocol === 'file:'
+    ? 'http://localhost:5000/api'
+    : 'https://discoverplay-backend-f1o7.onrender.com/api';
 let allAdminGames = [];
 let gamesList = [];
 let gameModal;

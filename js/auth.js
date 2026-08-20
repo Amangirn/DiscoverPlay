@@ -1,6 +1,7 @@
 /** DiscoverPlay authentication helpers. */
-const AUTH_API_BASE = '/api';
-
+const AUTH_API_BASE = window.location.protocol === 'file:'
+    ? 'http://localhost:5000/api'
+    : 'https://discoverplay-backend-f1o7.onrender.com/api';
 async function authRequest(path, options = {}) {
     const response = await fetch(`${AUTH_API_BASE}${path}`, {
         ...options,

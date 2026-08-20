@@ -1,5 +1,6 @@
-const CONTACT_API = '/api';
-
+const CONTACT_API = window.location.protocol === 'file:'
+    ? 'http://localhost:5000/api'
+    : 'https://discoverplay-backend-f1o7.onrender.com/api';
 async function contactRequest(path, options = {}) {
     const response = await fetch(`${CONTACT_API}${path}`, {
         credentials: 'include',
