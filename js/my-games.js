@@ -1,5 +1,6 @@
-const LIBRARY_API = '/api';
-
+const LIBRARY_API = window.location.protocol === 'file:'
+    ? 'http://localhost:5000/api'
+    : 'https://discoverplay-backend-f1o7.onrender.com/api';
 function libraryCard(game) {
     const cover = safeURL(game.coverImage, DEFAULT_COVER);
     const title = escapeHTML(game.title || 'Untitled');

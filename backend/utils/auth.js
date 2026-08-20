@@ -86,11 +86,21 @@ function getCookie(req, name) {
 }
 
 function setAuthCookie(res, token) {
-    res.setHeader('Set-Cookie', `${AUTH_COOKIE}=${encodeURIComponent(token)}; HttpOnly; Path=/; Max-Age=${TOKEN_TTL_SECONDS}; SameSite=Lax${process.env.NODE_ENV === 'production' ? '; Secure' : ''}`);
+    const isProduction = process.env.NODE_ENV === 'production';
+
+    res.setHeader(
+        'Set-Cookie',
+        `${AUTH_COOKIE}=${encodeURIComponent(token)}; HttpOnly; Path=/; Max-Age=${TOKEN_TTL_SECONDS}; SameSite=${isProduction ? 'None' : 'Lax'}${isProduction ? '; Secure' : ''}`
+    );
 }
 
 function clearAuthCookie(res) {
-    res.setHeader('Set-Cookie', `${AUTH_COOKIE}=; HttpOnly; Path=/; Max-Age=0; SameSite=Lax${process.env.NODE_ENV === 'production' ? '; Secure' : ''}`);
+    const isProduction = process.env.NODE_ENV === 'production';
+
+    res.setHeader(
+        'Set-Cookie',
+        `${AUTH_COOKIE}=; HttpOnly; Path=/; Max-Age=0; SameSite=${isProduction ? 'None' : 'Lax'}${isProduction ? '; Secure' : ''}`
+    );
 }
 
 function createAuthToken(user) {
