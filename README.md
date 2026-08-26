@@ -1,22 +1,42 @@
-# DiscoverPlay
+# 🎮 DiscoverPlay
 
-DiscoverPlay is a game discovery website backed by Express, MongoDB, and a static frontend.
+**DiscoverPlay** is a full-stack game discovery platform where users can explore, search, filter, and save their favorite games.
 
-## Local setup
+### ✨ Features
 
-1. Copy `backend/.env.example` to `backend/.env`.
-2. Set `MONGODB_URI` and a strong `JWT_SECRET`.
-3. Start the backend with `npm start` from `backend/`.
-4. Open `http://localhost:5000`.
+* 🎮 Game discovery, search & filtering
+* ⭐ Wishlist & Favorites
+* 👤 User registration & authentication
+* 📚 Personal game library
+* 🛠️ Admin dashboard & game management
+* 🗄️ MongoDB database integration
+* 🔐 Secure authentication & protected admin features
+* 🌐 Fully deployed production website
 
-## Development
+### 🧰 Tech Stack
 
-Use `npm run dev` for automatic restarts.
+**Frontend:** HTML, CSS, JavaScript
+**Backend:** Node.js, Express.js
+**Database:** MongoDB Atlas
+**Deployment:** Render
+**Version Control:** Git & GitHub
 
-## Admin
+### 🌐 Live Website
 
-Use `npm run create-admin` only when an admin account is intentionally needed.
+**https://discoverplay.onrender.com/**
 
-The production catalog is frozen; historical batch import and image-refresh scripts have been removed from the application package.
+### 🚀 Local Setup
 
-Never commit or share `backend/.env`.
+```bash
+cd backend
+npm install
+npm start
+```
+
+Create `backend/.env` using `.env.example` and configure your MongoDB URI and JWT secret.
+
+> ⚠️ Never commit or share your `.env` file or secret credentials.
+
+### 📌 Project Status
+
+**Completed & Deployed** — Developed as an academic full-stack web development project.
