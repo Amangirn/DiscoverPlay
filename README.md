@@ -33,10 +33,6 @@ npm install
 npm start
 ```
 
-Create `backend/.env` using `.env.example` and configure your MongoDB URI and JWT secret.
-
-> ⚠️ Never commit or share your `.env` file or secret credentials.
-
 ### 📌 Project Status
 
 **Completed & Deployed** — Developed as an academic full-stack web development project.
