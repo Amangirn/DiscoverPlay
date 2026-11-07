@@ -1,0 +1,1436 @@
+/*
+ * DiscoverPlay Global Styles
+ * Dark Gaming Theme
+ */
+
+/* =========================================================
+   1. ROOT VARIABLES
+   ========================================================= */
+
+:root {
+  --dp-bg-primary: #121212;
+  --dp-bg-secondary: #1e1e1e;
+  --dp-bg-tertiary: #252525;
+  --dp-bg-hover: #2c2c2c;
+
+  --dp-accent-primary: #6c63ff;
+  --dp-accent-primary-hover: #8179ff;
+  --dp-accent-secondary: #00c2ff;
+
+  --dp-text-primary: #ffffff;
+  --dp-text-secondary: #b3b3b3;
+  --dp-text-muted: #8f8f8f;
+
+  --dp-border: rgba(255, 255, 255, 0.08);
+  --dp-border-strong: rgba(255, 255, 255, 0.15);
+
+  --dp-success: #28a745;
+  --dp-warning: #ffc107;
+  --dp-danger: #dc3545;
+
+  --dp-radius-sm: 6px;
+  --dp-radius-md: 10px;
+  --dp-radius-lg: 14px;
+
+  --dp-transition: 0.25s ease;
+
+  --dp-font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+
+/* =========================================================
+   2. GLOBAL RESET
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  background-color: var(--dp-bg-primary);
+  color: var(--dp-text-primary);
+
+  font-family: var(--dp-font-family);
+  line-height: 1.6;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* =========================================================
+   3. GLOBAL TYPOGRAPHY
+   ========================================================= */
+
+body,
+div,
+section,
+article,
+main,
+header,
+footer,
+nav,
+aside,
+span,
+small,
+label {
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--dp-text-primary);
+  font-weight: 700;
+  line-height: 1.25;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+p {
+  color: var(--dp-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+small {
+  color: var(--dp-text-muted);
+}
+
+strong,
+b {
+  color: var(--dp-text-primary);
+}
+
+a {
+  color: var(--dp-accent-secondary);
+  text-decoration: none;
+  transition:
+    color var(--dp-transition),
+    opacity var(--dp-transition);
+}
+
+a:hover {
+  color: var(--dp-accent-primary-hover);
+}
+
+
+/* Browse UI fixes */
+#active-platform-badge[hidden] {
+  display: none !important;
+}
+
+#active-platform-badge:not([hidden]) {
+  display: inline-flex !important;
+}
+
+#browse-results-title {
+  color: #ffffff !important;
+}
+
+/* Password visibility toggle */
+.password-input-wrapper {
+  position: relative;
+}
+
+.password-input-wrapper .password-toggle {
+  right: .35rem;
+  padding: .25rem .5rem;
+  line-height: 1;
+  color: #adb5bd !important;
+  text-decoration: none !important;
+  z-index: 10;
+}
+
+.password-input-wrapper .password-toggle:hover,
+.password-input-wrapper .password-toggle:focus {
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+.password-input-wrapper .password-toggle i {
+  font-size: 1.05rem;
+  pointer-events: none;
+}
+
+/* Keep password visibility under DiscoverPlay's custom toggle. */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+
+/* =========================================================
+   4. BOOTSTRAP TEXT OVERRIDES
+   ========================================================= */
+
+/*
+ * Bootstrap's default dark/light utility classes can
+ * accidentally make text invisible on our dark background.
+ */
+
+.text-white {
+  color: #ffffff !important;
+}
+
+.text-light {
+  color: #f1f1f1 !important;
+}
+
+.text-body {
+  color: var(--dp-text-primary) !important;
+}
+
+.text-secondary {
+  color: var(--dp-text-secondary) !important;
+}
+
+.text-muted {
+  color: var(--dp-text-muted) !important;
+}
+
+.text-dark {
+  color: var(--dp-text-primary) !important;
+}
+
+
+/* =========================================================
+   5. NAVBAR
+   ========================================================= */
+
+.navbar {
+  background-color: rgba(30, 30, 30, 0.97) !important;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-bottom: none;
+
+  z-index: 1000;
+}
+
+.navbar-brand {
+  color: var(--dp-text-primary) !important;
+
+  font-size: 1.5rem;
+  font-weight: 800;
+
+  display: flex;
+  align-items: center;
+
+  gap: 0.5rem;
+}
+
+.navbar-brand:hover {
+  color: var(--dp-text-primary) !important;
+}
+
+.navbar-brand img {
+  width: auto;
+  height: 40px;
+  object-fit: contain;
+}
+
+.nav-link {
+  color: var(--dp-text-secondary) !important;
+
+  font-weight: 500;
+
+  margin: 0 0.35rem;
+
+  transition:
+    color var(--dp-transition),
+    background-color var(--dp-transition);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--dp-text-primary) !important;
+}
+
+.nav-link:hover {
+  background-color: rgba(108, 99, 255, 0.1);
+  border-radius: var(--dp-radius-sm);
+}
+
+
+/* =========================================================
+   6. NAVBAR DROPDOWN
+   ========================================================= */
+
+.dropdown-menu {
+  background-color: var(--dp-bg-secondary);
+
+  border: 1px solid var(--dp-border);
+
+  border-radius: var(--dp-radius-md);
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
+
+  padding: 0.5rem;
+
+  z-index: 2000;
+}
+
+.dropdown-item {
+  color: var(--dp-text-secondary) !important;
+
+  border-radius: var(--dp-radius-sm);
+
+  padding: 0.55rem 0.8rem;
+
+  transition:
+    background-color var(--dp-transition),
+    color var(--dp-transition);
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus,
+.dropdown-item.active {
+  background-color: rgba(108, 99, 255, 0.15) !important;
+  color: var(--dp-text-primary) !important;
+}
+
+
+/* =========================================================
+   7. BUTTONS
+   ========================================================= */
+
+.btn {
+  border-radius: var(--dp-radius-sm);
+
+  font-weight: 600;
+
+  transition:
+    transform var(--dp-transition),
+    background-color var(--dp-transition),
+    border-color var(--dp-transition),
+    box-shadow var(--dp-transition);
+}
+
+.btn-primary {
+  background-color: var(--dp-accent-primary);
+  border-color: var(--dp-accent-primary);
+  color: #ffffff !important;
+
+  padding: 0.6rem 1.5rem;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--dp-accent-primary-hover);
+  border-color: var(--dp-accent-primary-hover);
+
+  color: #ffffff !important;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 6px 18px rgba(108, 99, 255, 0.3);
+}
+
+.btn-secondary {
+  background-color: var(--dp-bg-tertiary);
+  border-color: var(--dp-border-strong);
+
+  color: var(--dp-text-primary) !important;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: var(--dp-bg-hover);
+  border-color: rgba(255, 255, 255, 0.25);
+
+  color: #ffffff !important;
+}
+
+.btn-outline-accent {
+  background-color: transparent;
+
+  color: var(--dp-accent-secondary) !important;
+  border-color: var(--dp-accent-secondary);
+}
+
+.btn-outline-accent:hover,
+.btn-outline-accent:focus {
+  background-color: var(--dp-accent-secondary);
+
+  color: #000000 !important;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 6px 18px rgba(0, 194, 255, 0.25);
+}
+
+.btn-outline-light {
+  color: var(--dp-text-primary) !important;
+  border-color: var(--dp-border-strong);
+}
+
+.btn-outline-light:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff !important;
+}
+
+
+/* =========================================================
+   8. GAME CARDS
+   ========================================================= */
+
+.game-card {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--dp-bg-secondary);
+
+  border: 1px solid var(--dp-border);
+
+  border-radius: var(--dp-radius-lg);
+
+  overflow: hidden;
+
+  transition:
+    transform var(--dp-transition),
+    box-shadow var(--dp-transition),
+    border-color var(--dp-transition);
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(108, 99, 255, 0.4);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(108, 99, 255, 0.08);
+}
+
+.game-card .card-img-top {
+  width: 100%;
+  height: 220px;
+
+  object-fit: cover;
+
+  background-color: var(--dp-bg-tertiary);
+
+  border: 0;
+
+  display: block;
+}
+
+.game-card .card-body {
+  padding: 1.25rem;
+
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.game-card .card-title {
+  color: var(--dp-text-primary) !important;
+
+  font-size: 1.15rem;
+  font-weight: 700;
+
+  margin-bottom: 0.5rem;
+}
+
+.game-card .card-text {
+  color: var(--dp-text-secondary) !important;
+}
+
+.game-card .genre-badge {
+  display: inline-block;
+
+  width: fit-content;
+
+  background-color: rgba(108, 99, 255, 0.15);
+
+  color: #a9a4ff !important;
+
+  padding: 0.25rem 0.75rem;
+
+  border-radius: 20px;
+
+  font-size: 0.78rem;
+  font-weight: 600;
+
+  margin-bottom: 0.8rem;
+}
+
+.game-card .platforms {
+  color: var(--dp-text-secondary) !important;
+
+  font-size: 0.88rem;
+
+  margin-bottom: 1rem;
+
+  flex-grow: 1;
+}
+
+.game-card .developer {
+  color: var(--dp-text-muted) !important;
+
+  font-size: 0.85rem;
+}
+
+.game-card .rating {
+  display: flex;
+  align-items: center;
+
+  gap: 0.4rem;
+
+  color: var(--dp-warning) !important;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   9. GENERIC BOOTSTRAP CARDS
+   ========================================================= */
+
+.card {
+  background-color: var(--dp-bg-secondary);
+
+  color: var(--dp-text-primary);
+
+  border: 1px solid var(--dp-border);
+
+  border-radius: var(--dp-radius-lg);
+}
+
+.card-header {
+  background-color: var(--dp-bg-tertiary);
+
+  color: var(--dp-text-primary);
+
+  border-bottom: 1px solid var(--dp-border);
+}
+
+.card-body {
+  color: var(--dp-text-primary);
+}
+
+.card-title {
+  color: var(--dp-text-primary);
+}
+
+.card-text {
+  color: var(--dp-text-secondary);
+}
+
+
+/* =========================================================
+   10. FORMS
+   ========================================================= */
+
+.form-label {
+  color: var(--dp-text-primary) !important;
+
+  font-weight: 600;
+
+  margin-bottom: 0.4rem;
+}
+
+.form-control,
+.form-select {
+  background-color: var(--dp-bg-secondary) !important;
+
+  border: 1px solid var(--dp-border-strong);
+
+  color: var(--dp-text-primary) !important;
+
+  border-radius: var(--dp-radius-sm);
+
+  padding: 0.7rem 0.9rem;
+}
+
+.form-control::placeholder {
+  color: #777777 !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: var(--dp-bg-secondary) !important;
+
+  color: var(--dp-text-primary) !important;
+
+  border-color: var(--dp-accent-primary);
+
+  box-shadow:
+    0 0 0 0.2rem rgba(108, 99, 255, 0.2);
+}
+
+.form-select option {
+  background-color: var(--dp-bg-secondary);
+  color: var(--dp-text-primary);
+}
+
+.form-check-label {
+  color: var(--dp-text-secondary) !important;
+}
+
+.form-check-input {
+  background-color: var(--dp-bg-tertiary);
+
+  border-color: var(--dp-border-strong);
+}
+
+.form-check-input:checked {
+  background-color: var(--dp-accent-primary);
+  border-color: var(--dp-accent-primary);
+}
+
+
+/* =========================================================
+   11. TABLES / LEADERBOARDS / ADMIN
+   ========================================================= */
+
+.table {
+  color: var(--dp-text-primary) !important;
+
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--dp-text-primary);
+}
+
+.table th {
+  color: var(--dp-text-primary) !important;
+
+  background-color: var(--dp-bg-tertiary);
+
+  border-color: var(--dp-border);
+}
+
+.table td {
+  color: var(--dp-text-secondary) !important;
+
+  background-color: transparent;
+
+  border-color: var(--dp-border);
+}
+
+.table tbody tr {
+  transition: background-color var(--dp-transition);
+}
+
+.table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.table a {
+  color: var(--dp-accent-secondary);
+}
+
+
+/* =========================================================
+   12. MODALS
+   ========================================================= */
+
+.modal-content {
+  background-color: var(--dp-bg-secondary);
+
+  color: var(--dp-text-primary);
+
+  border: 1px solid var(--dp-border);
+
+  border-radius: var(--dp-radius-lg);
+}
+
+.modal-header {
+  background-color: var(--dp-bg-tertiary);
+
+  color: var(--dp-text-primary);
+
+  border-bottom: 1px solid var(--dp-border);
+}
+
+.modal-title {
+  color: var(--dp-text-primary) !important;
+}
+
+.modal-body {
+  color: var(--dp-text-secondary);
+}
+
+.modal-footer {
+  border-top: 1px solid var(--dp-border);
+}
+
+.btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+
+/* =========================================================
+   13. LIST GROUPS
+   ========================================================= */
+
+.list-group-item {
+  background-color: var(--dp-bg-secondary);
+
+  color: var(--dp-text-secondary);
+
+  border-color: var(--dp-border);
+}
+
+.list-group-item:hover {
+  background-color: var(--dp-bg-hover);
+
+  color: var(--dp-text-primary);
+}
+
+
+/* =========================================================
+   14. BADGES
+   ========================================================= */
+
+.badge {
+  font-weight: 600;
+}
+
+.badge.bg-dark {
+  background-color: var(--dp-bg-tertiary) !important;
+
+  color: var(--dp-text-primary) !important;
+}
+
+.badge.bg-secondary {
+  background-color: #3a3a3a !important;
+
+  color: var(--dp-text-primary) !important;
+}
+
+
+/* =========================================================
+   15. SECTION TITLES
+   ========================================================= */
+
+.section-title {
+  position: relative;
+
+  display: inline-block;
+
+  color: var(--dp-text-primary);
+
+  margin-bottom: 2rem;
+}
+
+.section-title::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -10px;
+
+  width: 50%;
+  height: 4px;
+
+  background:
+    linear-gradient(90deg,
+      var(--dp-accent-primary),
+      var(--dp-accent-secondary));
+
+  border-radius: 2px;
+}
+
+
+/* =========================================================
+   16. HERO / FEATURED GAME
+   ========================================================= */
+
+#featured-hero {
+  position: relative;
+
+  min-height: 420px;
+
+  border-radius: var(--dp-radius-lg);
+
+  overflow: hidden;
+
+  background-color: var(--dp-bg-secondary);
+
+  border: none;
+}
+
+#featured-hero::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(90deg,
+      rgba(18, 18, 18, 0.95) 0%,
+      rgba(18, 18, 18, 0.7) 45%,
+      rgba(18, 18, 18, 0.15) 100%);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   17. LOADING STATE
+   ========================================================= */
+
+.dp-loading {
+  min-height: 180px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: var(--dp-text-secondary);
+}
+
+.dp-loading .spinner-border {
+  color: var(--dp-accent-primary);
+}
+
+
+/* =========================================================
+   18. EMPTY STATE
+   ========================================================= */
+
+.dp-empty {
+  min-height: 150px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 2rem;
+
+  background-color: var(--dp-bg-secondary);
+
+  border: 1px dashed var(--dp-border-strong);
+
+  border-radius: var(--dp-radius-lg);
+
+  color: var(--dp-text-secondary);
+}
+
+.dp-empty h5 {
+  color: var(--dp-text-primary);
+}
+
+.dp-empty p {
+  color: var(--dp-text-muted);
+}
+
+
+/* =========================================================
+   19. PLATFORM BADGES
+   ========================================================= */
+
+.platform-badge {
+  display: inline-block;
+
+  background-color: rgba(0, 194, 255, 0.1);
+
+  color: var(--dp-accent-secondary) !important;
+
+  border: 1px solid rgba(0, 194, 255, 0.2);
+
+  padding: 0.3rem 0.65rem;
+
+  margin: 0.15rem;
+
+  border-radius: 20px;
+
+  font-size: 0.78rem;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   20. STORE LINKS
+   ========================================================= */
+
+.store-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.4rem;
+
+  background-color: var(--dp-bg-tertiary);
+
+  color: var(--dp-text-primary) !important;
+
+  border: 1px solid var(--dp-border-strong);
+
+  padding: 0.5rem 0.8rem;
+
+  border-radius: var(--dp-radius-sm);
+
+  transition:
+    background-color var(--dp-transition),
+    border-color var(--dp-transition),
+    transform var(--dp-transition);
+}
+
+.store-link:hover {
+  background-color: var(--dp-bg-hover);
+
+  border-color: var(--dp-accent-primary);
+
+  color: #ffffff !important;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   21. FOOTER
+   ========================================================= */
+
+.footer {
+  background-color: var(--dp-bg-secondary);
+
+  border-top: 1px solid var(--dp-border);
+
+  padding: 3rem 0;
+
+  margin-top: 4rem;
+}
+
+.footer h5,
+.footer h6 {
+  color: var(--dp-text-primary);
+}
+
+.footer p {
+  color: var(--dp-text-secondary);
+}
+
+.footer-link {
+  color: var(--dp-text-secondary) !important;
+
+  text-decoration: none;
+
+  transition: color var(--dp-transition);
+}
+
+.footer-link:hover {
+  color: var(--dp-accent-primary) !important;
+}
+
+
+/* =========================================================
+   22. IMAGES
+   ========================================================= */
+
+img {
+  max-width: 100%;
+}
+
+img[src=""],
+img:not([src]) {
+  visibility: hidden;
+}
+
+
+/* =========================================================
+   23. SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dp-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3a3a3a;
+
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dp-accent-primary);
+}
+
+
+/* =========================================================
+   24. SELECTION
+   ========================================================= */
+
+::selection {
+  background-color: var(--dp-accent-primary);
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   AUTH SAVE TOAST
+   ========================================================= */
+
+.dp-auth-save-toast {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  max-width: min(560px, calc(100vw - 2rem));
+  padding: 0.9rem 1rem;
+  background: rgba(30, 30, 30, 0.97);
+  border: 1px solid rgba(108, 99, 255, 0.45);
+  border-radius: 12px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.dp-auth-save-toast.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dp-auth-save-toast__icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(108, 99, 255, 0.18);
+  color: var(--dp-accent-primary);
+  font-size: 1.1rem;
+}
+
+.dp-auth-save-toast__content {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.dp-auth-save-toast__content strong {
+  color: var(--dp-text-primary);
+  font-size: 0.95rem;
+}
+
+.dp-auth-save-toast__content span {
+  color: var(--dp-text-secondary);
+  font-size: 0.82rem;
+}
+
+.dp-auth-save-toast__actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 575px) {
+  .dp-auth-save-toast {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .dp-auth-save-toast__actions {
+    width: 100%;
+    margin-left: 3.15rem;
+  }
+}
+
+/* =========================================================
+   25. RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 991px) {
+  .navbar-nav {
+    padding: 0.75rem 0;
+  }
+
+  .nav-link {
+    margin: 0.15rem 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .game-card .card-img-top {
+    height: 190px;
+  }
+
+  .game-card .card-body {
+    padding: 1rem;
+  }
+
+  #featured-hero {
+    min-height: 350px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .game-card .card-img-top {
+    height: 220px;
+  }
+
+  .btn-primary {
+    padding: 0.55rem 1rem;
+  }
+}
+
+/* =========================================================
+   GAME DETAILS - QUICK INFO CARD
+   ========================================================= */
+
+.game-info-card {
+  background-color: #242424 !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: var(--dp-radius-md);
+  overflow: hidden;
+}
+
+.game-info-body {
+  background-color: #242424 !important;
+  color: var(--dp-text-primary) !important;
+}
+
+.game-info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  padding: 0.65rem 0;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.game-info-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.game-info-label {
+  color: #d0d0d0 !important;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.game-info-value {
+  color: #ffffff !important;
+  font-size: 0.95rem;
+  font-weight: 700;
+
+  text-align: right;
+}
+
+@media (max-width: 575px) {
+  .game-info-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .game-info-value {
+    text-align: left;
+  }
+}
+
+/* =========================================================
+   AUTH NAVIGATION
+   ========================================================= */
+[data-auth-nav] {
+  min-height: 38px;
+}
+
+.auth-user-label {
+  color: var(--dp-text-secondary);
+  font-size: 0.9rem;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.auth-user-label strong {
+  color: var(--dp-text-primary);
+}
+
+@media (max-width: 991.98px) {
+  [data-auth-nav] {
+    margin-top: 0.75rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
+
+/* Personal library actions */
+.library-action {
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+.library-action:hover {
+  transform: translateY(-1px);
+}
+.library-action.active {
+  color: #fff !important;
+}
+.navbar .navbar-nav {
+  flex-wrap: nowrap;
+}
+.navbar .nav-item {
+  white-space: nowrap;
+}
+@media (max-width: 1199px) {
+  .navbar .navbar-nav { flex-wrap: wrap; }
+}
+
+/* Admin dashboard refinements */
+.admin-games-toolbar { background: rgba(255,255,255,0.02); border: 1px solid var(--dp-border); border-radius: var(--dp-radius-lg); padding: 1rem; }
+.admin-toast-container { position: fixed; top: 1rem; right: 1rem; z-index: 3000; width: min(360px, calc(100vw - 2rem)); }
+.admin-image-preview img { width: 90px; height: 120px; object-fit: cover; display: block; }
+.admin-screenshot-preview { display: flex; flex-wrap: wrap; gap: .5rem; }
+.admin-screenshot-preview img { width: 120px; height: 70px; object-fit: cover; border-radius: 8px; border: 1px solid var(--dp-border); }
+@media (max-width: 767px) { .admin-toast-container { top: .75rem; right: .75rem; left: .75rem; width: auto; } }
+
+/* =========================================================
+   LEGAL PAGES
+   ========================================================= */
+
+.legal-page {
+  color: var(--dp-text-secondary);
+}
+
+.legal-page h1,
+.legal-page h2,
+.legal-page h3,
+.legal-page h4 {
+  color: var(--dp-text-primary) !important;
+  font-weight: 700;
+}
+
+.legal-page h1 {
+  font-size: clamp(2.2rem, 5vw, 3rem);
+}
+
+.legal-page h2 {
+  font-size: 1.35rem;
+  line-height: 1.3;
+}
+
+.legal-page p {
+  color: var(--dp-text-secondary) !important;
+}
+
+.legal-page .text-muted {
+  color: var(--dp-text-muted) !important;
+}
+
+
+/* =========================================================
+   CONSISTENT LOADING / ERROR / EMPTY STATES
+   ========================================================= */
+
+.dp-state {
+  width: 100%;
+  min-height: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+  text-align: left;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px dashed var(--dp-border-strong);
+  border-radius: var(--dp-radius-lg);
+}
+
+.dp-state__icon {
+  width: 42px;
+  min-width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  color: var(--dp-accent-secondary);
+  font-size: 1.5rem;
+}
+
+.dp-state--error .dp-state__icon { color: var(--dp-danger); }
+.dp-state--empty .dp-state__icon { color: var(--dp-accent-secondary); }
+.dp-state--loading .dp-state__icon { color: var(--dp-accent-primary); }
+
+.dp-state__content { min-width: 0; }
+.dp-state__title {
+  margin: 0 0 0.35rem;
+  color: var(--dp-text-primary);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.dp-state__message {
+  margin: 0;
+  color: var(--dp-text-secondary);
+  max-width: 52rem;
+  line-height: 1.5;
+}
+
+.dp-state__action { margin-top: 0.75rem; }
+
+.dp-state--loading { border-style: solid; }
+
+.dp-state--loading .spinner-border {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.table .dp-state {
+  min-height: 140px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+@media (max-width: 575px) {
+  .dp-state {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem 1rem;
+  }
+}
+
+
+.game-title-logo {
+  display: block;
+  max-width: min(360px, 80%);
+  max-height: 92px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: left center;
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.35));
+}
+@media (max-width: 767px) {
+  .game-title-logo { max-width: 260px; max-height: 72px; }
+}
+
+
+/* =========================================================
+   SUPPORT DEVELOPER - FLOATING RAZORPAY BUTTON
+   ========================================================= */
+.dp-support-float {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 1050;
+  width: 54px;
+  height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(135deg, #756bff, #5146d8);
+  box-shadow: 0 8px 26px rgba(81, 70, 216, 0.42);
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.dp-support-float:hover,
+.dp-support-float:focus-visible {
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(81, 70, 216, 0.55);
+  outline: none;
+}
+
+.dp-support-float i {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.dp-support-float__tooltip {
+  position: absolute;
+  right: calc(100% + 11px);
+  top: 50%;
+  transform: translate(5px, -50%);
+  padding: 0.55rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9px;
+  color: #fff;
+  background: #171827;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 160ms ease, transform 160ms ease, visibility 160ms ease;
+}
+
+.dp-support-float:hover .dp-support-float__tooltip,
+.dp-support-float:focus-visible .dp-support-float__tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, -50%);
+}
+
+.dp-support-float:disabled {
+  cursor: wait;
+  opacity: 0.8;
+}
+
+@media (max-width: 575.98px) {
+  .dp-support-float {
+    right: 15px;
+    bottom: 15px;
+    width: 49px;
+    height: 49px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dp-support-float,
+  .dp-support-float__tooltip {
+    transition: none;
+  }
+}
