@@ -227,24 +227,53 @@ const getRecommendedGames = async (req, res) => {
  * @route   GET /api/games/featured
  * @access  Public
  */
+
 const getFeaturedGame = async (req, res) => {
     try {
         const now = new Date();
-        const game = await Game.find({
+
+        // Get all eligible game IDs in a consistent order.
+        const games = await Game.find({
             $or: [
                 { releaseDate: null },
                 { releaseDate: { $lte: now } }
             ]
         })
-            .sort({ featuredWeight: -1, viewCount: -1, releaseDate: -1, createdAt: -1, _id: -1 })
-            .limit(1)
+            .select('_id')
+            .sort({ _id: 1 })
             .lean();
 
-        res.status(200).json({ success: true, data: game[0] || null });
+        if (!games.length) {
+            return res.status(200).json({
+                success: true,
+                data: null
+            });
+        }
+
+        // Select a different game each day.
+        const dayNumber = Math.floor(
+            Date.UTC(
+                now.getUTCFullYear(),
+                now.getUTCMonth(),
+                now.getUTCDate()
+            ) / 86400000
+        );
+
+        const selectedIndex = dayNumber % games.length;
+        const selectedGame = await Game.findById(
+            games[selectedIndex]._id
+        ).lean();
+
+        res.status(200).json({
+            success: true,
+            data: selectedGame
+        });
+
     } catch (error) {
         return sendServerError(res, error);
     }
 };
+
 
 /**
  * @desc    Get similar games
