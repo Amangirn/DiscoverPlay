@@ -550,20 +550,23 @@ async function loadFeaturedGame() {
 
         // Background
         
+
 heroSection.style.background = `
     linear-gradient(
         90deg,
-        rgba(10,10,10,0.58) 0%,
-        rgba(10,10,10,0.38) 48%,
-        rgba(10,10,10,0.15) 100%
+        rgba(10, 10, 15, 0.42) 0%,
+        rgba(10, 10, 15, 0.20) 45%,
+        rgba(10, 10, 15, 0.04) 100%
     ),
     linear-gradient(
         0deg,
-        rgba(18,18,18,0.85) 0%,
-        rgba(18,18,18,0.05) 70%
+        rgba(18, 18, 18, 0.55) 0%,
+        rgba(18, 18, 18, 0.05) 55%,
+        transparent 100%
     ),
     url('${cover}') center/cover no-repeat
 `;
+
 
         // Title
         titleEl.textContent =
