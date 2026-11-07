@@ -10,6 +10,7 @@ const searchRoutes = require('./routes/searchRoutes');
 const userRoutes = require('./routes/userRoutes');
 const authRoutes = require('./routes/authRoutes');
 const contactRoutes = require('./routes/contactRoutes');
+const paymentRoutes = require('./routes/paymentRoutes');
 
 const app = express();
 
@@ -26,16 +27,25 @@ app.use((req, res, next) => {
 app.use(express.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended: true, limit: '1mb' }));
 
-// CORS can be restricted later with FRONTEND_ORIGIN.
-// For the current local project, '*' keeps the existing frontend behavior.
-const corsOrigin = process.env.FRONTEND_ORIGIN || '*';
+// Allow the deployed DiscoverPlay frontend, any explicitly configured frontend
+// origins, and localhost during development. FRONTEND_ORIGIN may contain a
+// comma-separated list when multiple frontend deployments are used.
+const configuredOrigins = (process.env.FRONTEND_ORIGIN || '')
+    .split(',')
+    .map(origin => origin.trim())
+    .filter(Boolean);
+const allowedOrigins = new Set([
+    'https://discoverplay.onrender.com',
+    ...configuredOrigins
+]);
 app.use(cors({
     origin: (origin, callback) => {
-        // Allow browser requests from localhost and file:// during local development.
-        if (!origin || origin === 'null' || origin === corsOrigin || /^https?:\/\/(localhost|127\.0\.1)(:\d+)?$/.test(origin)) {
+        // Requests without an Origin header and file:// pages are allowed for local tools.
+        const isLocalOrigin = origin && /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin);
+        if (!origin || origin === 'null' || allowedOrigins.has(origin) || isLocalOrigin) {
             return callback(null, true);
         }
-        return callback(new Error('CORS origin not allowed'));
+        return callback(new Error(`CORS origin not allowed: ${origin}`));
     },
     credentials: true
 }));
@@ -73,6 +83,7 @@ app.use('/api/games', gameRoutes);
 app.use('/api/search', searchRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/contact', contactRoutes);
+app.use('/api/payments', paymentRoutes);
 
 // Serve the frontend from the same Express server in local/deployed mode.
 // This also makes HttpOnly authentication cookies work cleanly.

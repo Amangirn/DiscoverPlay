@@ -1351,3 +1351,86 @@ img:not([src]) {
 @media (max-width: 767px) {
   .game-title-logo { max-width: 260px; max-height: 72px; }
 }
+
+
+/* =========================================================
+   SUPPORT DEVELOPER - FLOATING RAZORPAY BUTTON
+   ========================================================= */
+.dp-support-float {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 1050;
+  width: 54px;
+  height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(135deg, #756bff, #5146d8);
+  box-shadow: 0 8px 26px rgba(81, 70, 216, 0.42);
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.dp-support-float:hover,
+.dp-support-float:focus-visible {
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(81, 70, 216, 0.55);
+  outline: none;
+}
+
+.dp-support-float i {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.dp-support-float__tooltip {
+  position: absolute;
+  right: calc(100% + 11px);
+  top: 50%;
+  transform: translate(5px, -50%);
+  padding: 0.55rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9px;
+  color: #fff;
+  background: #171827;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 160ms ease, transform 160ms ease, visibility 160ms ease;
+}
+
+.dp-support-float:hover .dp-support-float__tooltip,
+.dp-support-float:focus-visible .dp-support-float__tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, -50%);
+}
+
+.dp-support-float:disabled {
+  cursor: wait;
+  opacity: 0.8;
+}
+
+@media (max-width: 575.98px) {
+  .dp-support-float {
+    right: 15px;
+    bottom: 15px;
+    width: 49px;
+    height: 49px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dp-support-float,
+  .dp-support-float__tooltip {
+    transition: none;
+  }
+}

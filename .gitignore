@@ -1,18 +1,14 @@
-# Environment / secrets
+# Environment secrets
 .env
 .env.*
 !.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
 
-# Dependencies
+# Dependencies and local runtime files
 node_modules/
-
-# Logs
+backend/node_modules/
 npm-debug.log*
-yarn-debug.log*
-pnpm-debug.log*
-
-# OS/editor
 .DS_Store
 Thumbs.db
-.vscode/
-.idea/
