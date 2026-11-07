@@ -9,7 +9,7 @@ const isLocalDiscoverPlay = window.location.protocol === 'file:' ||
 
 const SUPPORT_API_BASE = isLocalDiscoverPlay
     ? 'http://localhost:5000/api'
-    : 'https://discoverplay-payments-api.onrender.com';
+    : 'https://discoverplay-payments-api.onrender.com/api';
 
 let razorpayCheckoutPromise = null;
 
