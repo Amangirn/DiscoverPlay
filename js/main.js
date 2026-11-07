@@ -549,11 +549,21 @@ async function loadFeaturedGame() {
             `${getDetailsPath()}?id=${gameId}`;
 
         // Background
-        heroSection.style.background =
-            `linear-gradient(
-                rgba(18,18,18,0.65),
-                rgba(18,18,18,1)
-            ), url('${cover}') center/cover no-repeat`;
+        
+heroSection.style.background = `
+    linear-gradient(
+        90deg,
+        rgba(10,10,10,0.58) 0%,
+        rgba(10,10,10,0.38) 48%,
+        rgba(10,10,10,0.15) 100%
+    ),
+    linear-gradient(
+        0deg,
+        rgba(18,18,18,0.85) 0%,
+        rgba(18,18,18,0.05) 70%
+    ),
+    url('${cover}') center/cover no-repeat
+`;
 
         // Title
         titleEl.textContent =
