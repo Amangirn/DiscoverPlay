@@ -72,7 +72,13 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `;
 
-    document.body.appendChild(adBox);
+    const adSidebar = document.getElementById('homepage-ad-sidebar');
+
+if (!adSidebar) {
+    return;
+}
+
+adSidebar.appendChild(adBox);
 
     const title = adBox.querySelector('.demo-ad-title');
     const description = adBox.querySelector('.demo-ad-description');
