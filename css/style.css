@@ -1598,3 +1598,161 @@ img:not([src]) {
         max-width: 230px !important;
     }
 }
+
+
+/* =====================================
+   DISCOVERPLAY FLOATING DEMO ADS
+===================================== */
+
+#discoverplay-demo-ad {
+    position: fixed;
+    top: 155px;
+    right: 18px;
+    width: 215px;
+    z-index: 900;
+    background: #1d1d25;
+    border: 1px solid #383843;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+    color: #fff;
+    animation: demoAdEnter 0.5s ease;
+}
+
+.demo-ad-header {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 11px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #aaa;
+}
+
+.demo-ad-label {
+    color: #9c8cff;
+    background: rgba(120,100,255,0.15);
+    padding: 3px 6px;
+    border-radius: 4px;
+}
+
+.demo-ad-close {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 19px;
+    cursor: pointer;
+}
+
+.demo-ad-close:hover {
+    color: white;
+}
+
+.demo-ad-content {
+    padding: 0 12px 13px;
+    transition: opacity 0.25s ease;
+}
+
+.demo-ad-content.changing {
+    opacity: 0;
+}
+
+.demo-ad-art {
+    height: 112px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #43358f, #17172d);
+    margin-bottom: 12px;
+}
+
+.demo-ad-content.blue .demo-ad-art {
+    background: linear-gradient(135deg, #175b88, #141d37);
+}
+
+.demo-ad-content.orange .demo-ad-art {
+    background: linear-gradient(135deg, #a34a24, #331b2a);
+}
+
+.demo-ad-content.pink .demo-ad-art {
+    background: linear-gradient(135deg, #803e80, #281d46);
+}
+
+.demo-ad-icon {
+    font-size: 48px;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,.3));
+}
+
+.demo-ad-tag {
+    color: #a99bff;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 7px;
+}
+
+.demo-ad-title {
+    color: white;
+    font-size: 16px;
+    line-height: 1.35;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+.demo-ad-description {
+    color: #aaa;
+    font-size: 11px;
+    line-height: 1.5;
+    min-height: 34px;
+    margin-bottom: 13px;
+}
+
+.demo-ad-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 10px 7px;
+    border-radius: 7px;
+    background: #6858ed;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .2s ease;
+}
+
+.demo-ad-button:hover {
+    background: #7b6cff;
+    color: white;
+}
+
+.demo-ad-footer {
+    border-top: 1px solid #33333d;
+    padding: 8px;
+    text-align: center;
+    color: #777;
+    font-size: 9px;
+}
+
+@keyframes demoAdEnter {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Hide on smaller screens */
+@media (max-width: 1250px) {
+    #discoverplay-demo-ad {
+        display: none;
+    }
+}
