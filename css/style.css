@@ -1731,3 +1731,42 @@ img:not([src]) {
         display: none;
     }
 }
+/* Homepage two-column layout */
+.homepage-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 260px;
+    gap: 24px;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.homepage-main {
+    min-width: 0;
+}
+
+/* Right advertisement sidebar */
+.homepage-ad-sidebar {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+    width: 260px;
+}
+
+/* Advertisement fills sidebar */
+.homepage-ad-sidebar #discoverplay-demo-ad {
+    position: relative;
+    width: 100%;
+    margin: 0;
+}
+
+/* Hide sidebar on smaller screens */
+@media (max-width: 1100px) {
+    .homepage-layout {
+        display: block;
+    }
+
+    .homepage-ad-sidebar {
+        display: none;
+    }
+}
