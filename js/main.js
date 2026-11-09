@@ -1026,10 +1026,6 @@ async function loadGameDetails() {
 
         document.title =
             `${gameTitle} | DiscoverPlay`;
-
-        titleEl.textContent =
-            gameTitle;
-
         
 // Game Logo
 const logoEl = document.getElementById('game-logo');
@@ -1046,6 +1042,8 @@ if (logoEl) {
         >`
         : '';
 }
+         titleEl.textContent =
+            gameTitle;
 
 
         const gameActionsEl = document.getElementById('game-library-actions');
