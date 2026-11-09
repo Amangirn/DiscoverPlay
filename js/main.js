@@ -1030,6 +1030,24 @@ async function loadGameDetails() {
         titleEl.textContent =
             gameTitle;
 
+        
+// Game Logo
+const logoEl = document.getElementById('game-logo');
+
+if (logoEl) {
+    const logoURL = safeURL(game.logoImage, '');
+
+    logoEl.innerHTML = logoURL
+        ? `<img
+            src="${logoURL}"
+            alt="${escapeHTML(gameTitle)} logo"
+            class="game-title-logo"
+            onerror="this.parentElement.innerHTML=''"
+        >`
+        : '';
+}
+
+
         const gameActionsEl = document.getElementById('game-library-actions');
         if (gameActionsEl) {
             const gameIdAttr = escapeHTML(String(game._id));
