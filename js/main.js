@@ -1099,23 +1099,30 @@ if (logoEl) {
             };
         }
 
-        // Banner
-        const bannerEl =
-            document.getElementById(
-                'game-banner'
-            );
+        // Cinematic Game Banner
+const bannerEl = document.getElementById('game-banner');
 
-        if (bannerEl) {
+if (bannerEl) {
+    bannerEl.style.height = '58vh';
+    bannerEl.style.minHeight = '430px';
+    bannerEl.style.maxHeight = '650px';
 
-            bannerEl.style.background =
-                `linear-gradient(
-                    to top,
-                    var(--dp-bg-primary) 0%,
-                    rgba(18,18,18,0.3) 100%
-                ),
-                url('${cover}') center/cover no-repeat`;
-        }
-
+    bannerEl.style.background = `
+        linear-gradient(
+            90deg,
+            rgba(12, 12, 16, 0.25) 0%,
+            rgba(12, 12, 16, 0.05) 50%,
+            rgba(12, 12, 16, 0.25) 100%
+        ),
+        linear-gradient(
+            to top,
+            var(--dp-bg-primary) 0%,
+            rgba(18, 18, 18, 0.15) 65%,
+            rgba(18, 18, 18, 0.05) 100%
+        ),
+        url('${cover}') center 25% / cover no-repeat
+    `;
+}
         // Developer
         const devEl =
             document.getElementById(
