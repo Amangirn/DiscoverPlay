@@ -1487,3 +1487,54 @@ img:not([src]) {
         max-height: 55px;
     }
 }
+
+/* GAME STORE LINK CARDS */
+
+.store-link-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 210px;
+    padding: 15px 18px;
+    background: #202027;
+    border: 1px solid #383842;
+    border-radius: 12px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.store-link-card:hover {
+    background: #292936;
+    border-color: var(--bs-primary);
+    transform: translateY(-4px);
+    color: #fff;
+}
+
+.store-link-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(13, 110, 253, 0.15);
+    color: #70a7ff;
+    border-radius: 10px;
+    font-size: 21px;
+}
+
+.store-link-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.store-link-content small {
+    color: #aaa;
+    font-size: 12px;
+}
+
+.store-link-arrow {
+    margin-left: auto;
+    color: #aaa;
+}
