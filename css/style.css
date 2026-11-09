@@ -1538,3 +1538,57 @@ img:not([src]) {
     margin-left: auto;
     color: #aaa;
 }
+/* =================================
+   SIMILAR GAMES CAROUSEL
+================================= */
+
+.similar-games-track {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px 4px 25px;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #555 #202027;
+}
+
+.similar-games-track > .col {
+    flex: 0 0 280px;
+    width: 280px;
+    max-width: 280px;
+    scroll-snap-align: start;
+}
+
+.similar-games-track .game-card {
+    height: 100%;
+    transition: transform 0.25s ease;
+}
+
+.similar-games-track .game-card:hover {
+    transform: translateY(-5px);
+}
+
+.similar-games-track::-webkit-scrollbar {
+    height: 7px;
+}
+
+.similar-games-track::-webkit-scrollbar-track {
+    background: #202027;
+    border-radius: 10px;
+}
+
+.similar-games-track::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 10px;
+}
+
+@media (max-width: 576px) {
+    .similar-games-track > .col {
+        flex-basis: 230px;
+        width: 230px;
+        max-width: 230px;
+    }
+}
