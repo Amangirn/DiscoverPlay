@@ -1547,26 +1547,24 @@ img:not([src]) {
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
-    gap: 24px;
+    gap: 20px;
 
     width: 100%;
-    max-width: 950px;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
+    overflow-x: auto;
+    overflow-y: hidden;
 
-    padding: 12px 4px 25px;
+    padding: 10px 4px 25px;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
 
     scrollbar-width: thin;
-    scrollbar-color: #666 #202027;
+    scrollbar-color: #555 #202027;
 }
 
 #similar-games-grid.similar-games-track > .col {
-    flex: 0 0 350px !important;
-    width: 350px !important;
-    max-width: 350px !important;
+    flex: 0 0 280px !important;
+    width: 280px !important;
+    max-width: 280px !important;
     scroll-snap-align: start;
 }
 
@@ -1589,18 +1587,14 @@ img:not([src]) {
 }
 
 #similar-games-grid::-webkit-scrollbar-thumb {
-    background: #666;
+    background: #555;
     border-radius: 10px;
 }
 
 @media (max-width: 576px) {
-    #similar-games-grid.similar-games-track {
-        max-width: 100%;
-    }
-
     #similar-games-grid.similar-games-track > .col {
-        flex-basis: 260px !important;
-        width: 260px !important;
-        max-width: 260px !important;
+        flex-basis: 230px !important;
+        width: 230px !important;
+        max-width: 230px !important;
     }
 }
