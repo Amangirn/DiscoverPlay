@@ -672,7 +672,7 @@ async function loadTrendingGames() {
 
     try {
         const response =
-            await fetch(`${API_BASE}/games/trending?limit=8`, { credentials: 'include' });
+            await fetch(`${API_BASE}/games/trending?limit=12`, { credentials: 'include' });
 
         const result =
             await getJSON(response);
