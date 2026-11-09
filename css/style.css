@@ -1463,3 +1463,27 @@ img:not([src]) {
         height: 180px;
     }
 }
+/* Game Details - Logo beside title */
+.game-logo-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.game-title-logo {
+    display: block;
+    max-width: 140px;
+    max-height: 72px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Mobile adjustment */
+@media (max-width: 576px) {
+    .game-title-logo {
+        max-width: 100px;
+        max-height: 55px;
+    }
+}
