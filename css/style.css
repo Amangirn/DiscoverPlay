@@ -1601,40 +1601,39 @@ img:not([src]) {
 
 
 /* =====================================
-   DISCOVERPLAY FLOATING DEMO ADS
+   DISCOVERPLAY FIXED RIGHT AD SIDEBAR
 ===================================== */
 
 #discoverplay-demo-ad {
     position: fixed;
-    top: 155px;
-    right: 18px;
-    width: 215px;
+    top: 100px;
+    right: 15px;
+    width: 260px;
+    height: auto;
+    max-height: calc(100vh - 120px);
     z-index: 900;
-    background: #1d1d25;
+
+    background: #19191f;
     border: 1px solid #383843;
     border-radius: 14px;
     overflow: hidden;
-    box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+
+    box-shadow: 0 8px 30px rgba(0,0,0,0.35);
     color: #fff;
-    animation: demoAdEnter 0.5s ease;
+
+    animation: none;
 }
 
+/* Header */
 .demo-ad-header {
     display: flex;
     align-items: center;
     gap: 7px;
-    padding: 10px 11px;
-    font-size: 9px;
+    padding: 12px;
+    font-size: 10px;
     font-weight: 700;
     letter-spacing: 1px;
     color: #aaa;
-}
-
-.demo-ad-label {
-    color: #9c8cff;
-    background: rgba(120,100,255,0.15);
-    padding: 3px 6px;
-    border-radius: 4px;
 }
 
 .demo-ad-close {
@@ -1646,27 +1645,20 @@ img:not([src]) {
     cursor: pointer;
 }
 
-.demo-ad-close:hover {
-    color: white;
-}
-
+/* Advertisement content */
 .demo-ad-content {
-    padding: 0 12px 13px;
-    transition: opacity 0.25s ease;
-}
-
-.demo-ad-content.changing {
-    opacity: 0;
+    padding: 0 12px 14px;
+    transition: opacity .3s ease;
 }
 
 .demo-ad-art {
-    height: 112px;
+    height: 145px;
     border-radius: 9px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, #43358f, #17172d);
-    margin-bottom: 12px;
+    margin-bottom: 13px;
 }
 
 .demo-ad-content.blue .demo-ad-art {
@@ -1682,32 +1674,28 @@ img:not([src]) {
 }
 
 .demo-ad-icon {
-    font-size: 48px;
-    filter: drop-shadow(0 5px 10px rgba(0,0,0,.3));
+    font-size: 58px;
 }
 
 .demo-ad-tag {
     color: #a99bff;
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 700;
-    letter-spacing: 1px;
-    margin-bottom: 7px;
+    margin-bottom: 8px;
 }
 
 .demo-ad-title {
-    color: white;
-    font-size: 16px;
-    line-height: 1.35;
+    color: #fff;
+    font-size: 19px;
+    line-height: 1.4;
     font-weight: 700;
-    margin-bottom: 7px;
 }
 
 .demo-ad-description {
     color: #aaa;
-    font-size: 11px;
-    line-height: 1.5;
-    min-height: 34px;
-    margin-bottom: 13px;
+    font-size: 13px;
+    line-height: 1.6;
+    min-height: 42px;
 }
 
 .demo-ad-button {
@@ -1716,14 +1704,12 @@ img:not([src]) {
     justify-content: center;
     gap: 8px;
     width: 100%;
-    padding: 10px 7px;
+    padding: 11px;
     border-radius: 7px;
     background: #6858ed;
     color: white;
-    font-size: 12px;
-    font-weight: 600;
     text-decoration: none;
-    transition: background .2s ease;
+    font-weight: 600;
 }
 
 .demo-ad-button:hover {
@@ -1733,25 +1719,14 @@ img:not([src]) {
 
 .demo-ad-footer {
     border-top: 1px solid #33333d;
-    padding: 8px;
+    padding: 9px;
     text-align: center;
     color: #777;
-    font-size: 9px;
+    font-size: 10px;
 }
 
-@keyframes demoAdEnter {
-    from {
-        opacity: 0;
-        transform: translateX(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* Hide on smaller screens */
-@media (max-width: 1250px) {
+/* Responsive */
+@media (max-width: 1200px) {
     #discoverplay-demo-ad {
         display: none;
     }
