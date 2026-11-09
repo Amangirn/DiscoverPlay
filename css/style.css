@@ -1434,3 +1434,32 @@ img:not([src]) {
     transition: none;
   }
 }
+
+/* Game Details - Wider Media Gallery */
+#game-screenshots {
+    width: 100%;
+}
+
+#game-screenshots img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.25s ease;
+}
+
+#game-screenshots img:hover {
+    transform: scale(1.03);
+}
+
+@media (max-width: 991px) {
+    #game-screenshots img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    #game-screenshots img {
+        height: 180px;
+    }
+}
