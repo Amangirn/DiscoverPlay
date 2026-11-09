@@ -1239,57 +1239,47 @@ if (bannerEl) {
             }
         }
 
-        // Store links
-        const linksEl =
-            document.getElementById(
-                'game-store-links'
-            );
+        
+// Store Links
+const linksEl = document.getElementById('game-store-links');
 
-        if (linksEl) {
+if (linksEl) {
+    if (
+        Array.isArray(game.storeLinks) &&
+        game.storeLinks.length
+    ) {
+        linksEl.innerHTML = game.storeLinks
+            .map(link => {
+                const storeURL = safeURL(link.url, '#');
+                const storeName = escapeHTML(link.store || 'Store');
 
-            if (
-                Array.isArray(game.storeLinks) &&
-                game.storeLinks.length
-            ) {
+                return `
+                    <a
+                        href="${storeURL}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="store-link-card"
+                    >
+                        <span class="store-link-icon">
+                            <i class="bi bi-shop"></i>
+                        </span>
 
-                linksEl.innerHTML =
-                    game.storeLinks
-                        .map(link => {
+                        <span class="store-link-content">
+                            <strong>${storeName}</strong>
+                            <small>Visit Store</small>
+                        </span>
 
-                            const storeURL =
-                                safeURL(
-                                    link.url,
-                                    '#'
-                                );
+                        <i class="bi bi-arrow-up-right store-link-arrow"></i>
+                    </a>
+                `;
+            })
+            .join('');
+    } else {
+        linksEl.innerHTML =
+            '<p class="text-muted">No store links available.</p>';
+    }
+}
 
-                            const storeName =
-                                escapeHTML(
-                                    link.store || 'Store'
-                                );
-
-                            return `
-                                <a
-                                    href="${storeURL}"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="btn btn-dark border border-secondary px-4 py-2 d-flex align-items-center gap-2"
-                                >
-
-                                    <i class="bi bi-box-arrow-up-right"></i>
-
-                                    ${storeName}
-
-                                </a>
-                            `;
-                        })
-                        .join('');
-
-            } else {
-
-                linksEl.innerHTML =
-                    '<p class="text-muted">No store links available.</p>';
-            }
-        }
 
         // Similar games
         loadSimilarGames(gameId);
